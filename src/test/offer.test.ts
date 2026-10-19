@@ -10,6 +10,13 @@ describe("offer rules", () => {
     expect(PACKAGES.complete.price).toBe("47,00");
     expect(PACKAGES.upgrade.price).toBe("37,00");
   });
+  it("basic keeps 7-day guarantee, complete and upgrade have 60-day", () => {
+    expect(PACKAGES.basic.includes).toContain("Garantia de 7 dias");
+    expect(PACKAGES.complete.includes).toContain("Garantia de 60 dias");
+    expect(PACKAGES.upgrade.includes).toContain("Garantia de 60 dias");
+    expect(PACKAGES.complete.includes.join(" ")).not.toMatch(/7 dias/);
+    expect(PACKAGES.upgrade.includes.join(" ")).not.toMatch(/7 dias/);
+  });
   it("basic plan lists e-mail support as 'Suporte por e-mail'", () => {
     expect(PACKAGES.basic.includes).toContain("Suporte por e-mail");
     expect(PACKAGES.basic.includes.join(" ")).not.toMatch(/atendimento/i);
