@@ -4,12 +4,12 @@ import { SectionHeading } from "./ui";
 const faqs = [
   ["Os livros são físicos ou digitais?", "Todos os livros são digitais, em formato PDF. Você não receberá livros físicos."],
   ["Posso ler pelo celular?", "Sim. Os arquivos PDF podem ser abertos em celulares, tablets e computadores compatíveis."],
-  ["Qual é a diferença entre o Básico e o Completo?", "O Básico oferece 3.500 livros digitais, atendimento por e-mail e garantia de 7 dias. O Completo amplia a biblioteca para 5.500 livros no total, acrescenta mais de 3.500 audiobooks e oferece suporte pelo WhatsApp, além dos benefícios do Básico."],
+  ["Qual é a diferença entre o Básico e o Completo?", "O Básico oferece 3.500 livros digitais, suporte por e-mail e garantia de 7 dias. O Completo amplia a biblioteca para 5.500 livros no total, acrescenta mais de 3.500 audiobooks e oferece suporte pelo WhatsApp, além dos benefícios do Básico."],
   ["O Pacote Básico inclui audiobooks?", "Não. Os audiobooks estão disponíveis no Pacote Completo."],
   ["Como vou receber meu produto?", "Após a confirmação do pagamento, você receberá as instruções de acesso e entrega digital disponibilizadas pela plataforma."],
   ["Tenho direito a garantia?", "Sim. Os pacotes possuem garantia de 7 dias, conforme as condições informadas na compra."],
   ["Posso pagar pela Hotmart?", "Sim. Ao escolher seu pacote, você será direcionado ao checkout correspondente da Hotmart."],
-  ["O atendimento é pelo WhatsApp?", "O Pacote Básico possui atendimento exclusivamente por e-mail. O Pacote Completo inclui também suporte pelo WhatsApp."],
+  ["O suporte é pelo WhatsApp?", "O Pacote Básico possui suporte por e-mail. O Pacote Completo inclui também suporte pelo WhatsApp."],
 ];
 
 export function FAQSection() {

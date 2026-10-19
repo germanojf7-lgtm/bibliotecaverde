@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   HeroSection, ReceiveSection, BenefitsSection, HowItWorksSection, TestimonialsSection, GuaranteeSection, Footer,
 } from "@/components/landing/sections";
-import { ComparisonSection, PricingSection } from "@/components/landing/PricingSection";
+import { PricingSection } from "@/components/landing/PricingSection";
 import { UpgradeModal } from "@/components/landing/UpgradeModal";
 import { FAQSection } from "@/components/landing/FAQSection";
 import { scrollToPricing } from "@/config/offer";
@@ -55,7 +55,6 @@ function Index() {
       <BenefitsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <ComparisonSection />
       <PricingSection onBasic={(el) => { opener.current = el; setOpen(true); }} />
       <FAQSection />
       <GuaranteeSection />

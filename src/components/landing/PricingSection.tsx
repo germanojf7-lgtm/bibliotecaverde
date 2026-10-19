@@ -2,48 +2,6 @@ import { Check, X } from "lucide-react";
 import { CHECKOUT_LINKS, PACKAGES } from "@/config/offer";
 import { BuyButton, SectionHeading, buyLinkClass } from "./ui";
 
-const rows: [string, string, string][] = [
-  ["Livros digitais em PDF", "3.500", "5.500"],
-  ["Audiobooks", "—", "+3.500"],
-  ["Atendimento por e-mail", "✓", "✓"],
-  ["Suporte pelo WhatsApp", "—", "✓"],
-  ["Garantia de 7 dias", "✓", "✓"],
-];
-
-export function ComparisonSection() {
-  return (
-    <section className="bg-cream px-4 py-16">
-      <div className="mx-auto max-w-3xl">
-        <SectionHeading title="Escolha a Biblioteca Ideal Para Você" subtitle="Compare os benefícios e escolha a opção que combina com seus objetivos." />
-        <div className="overflow-hidden rounded-2xl bg-card shadow-soft">
-          <table className="w-full text-left text-sm sm:text-base">
-            <thead>
-              <tr className="bg-ink text-primary-foreground">
-                <th scope="col" className="p-3 font-medium sm:p-4">Recurso</th>
-                <th scope="col" className="p-3 text-center font-medium sm:p-4">Básico</th>
-                <th scope="col" className="p-3 text-center font-medium text-gold sm:p-4">Completo</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map(([label, b, c]) => (
-                <tr key={label} className="border-t border-border">
-                  <th scope="row" className="p-3 font-normal text-ink sm:p-4">{label}</th>
-                  <td className="p-3 text-center text-ink-soft sm:p-4">{b}</td>
-                  <td className="p-3 text-center font-semibold text-ink sm:p-4">{c}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-5 text-center text-sm text-ink-soft">
-          O Pacote Completo inclui os 3.500 livros do Pacote Básico e mais 2.000 livros adicionais, totalizando 5.500 livros digitais.
-          Além disso, você recebe mais de 3.500 audiobooks e suporte pelo WhatsApp.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 export function PricingSection({ onBasic }: { onBasic: (el: HTMLButtonElement) => void }) {
   const { basic, complete } = PACKAGES;
   return (
