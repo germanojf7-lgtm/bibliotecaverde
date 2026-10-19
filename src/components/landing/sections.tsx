@@ -25,10 +25,10 @@ export function HeroSection() {
         <img
           src={mockup.url}
           alt="Coleção de livros digitais da Biblioteca Digital Premium"
-          width={1146}
-          height={1408}
+          width={928}
+          height={1152}
           fetchPriority="high"
-          className="mx-auto mt-8 h-auto w-full max-w-[460px] mix-blend-multiply"
+          className="mx-auto mt-8 h-auto w-full max-w-[460px]"
         />
         <ul className="mx-auto mt-6 flex max-w-xl flex-col items-center gap-2 text-sm text-ink sm:flex-row sm:justify-center sm:gap-5">
           {["Produto 100% digital", "Leitura no celular, tablet ou computador", "Garantia de 7 dias"].map((t) => (
