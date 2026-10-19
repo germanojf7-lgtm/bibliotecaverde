@@ -14,7 +14,16 @@ const GLITTER = Array.from({ length: 60 }, (_, i) => {
 export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const [celebrating, setCelebrating] = useState(false);
-  useEffect(() => { if (!open) setCelebrating(false); }, [open]);
+  const [welcome, setWelcome] = useState(false);
+  useEffect(() => {
+    if (open) {
+      setWelcome(true);
+      const t = setTimeout(() => setWelcome(false), 2600);
+      return () => clearTimeout(t);
+    }
+    setWelcome(false);
+    setCelebrating(false);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
