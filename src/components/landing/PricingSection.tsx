@@ -1,4 +1,4 @@
-import { Check, X } from "lucide-react";
+import { Check } from "lucide-react";
 import { CHECKOUT_LINKS, PACKAGES } from "@/config/offer";
 import { BuyButton, SectionHeading, buyLinkClass } from "./ui";
 
@@ -14,10 +14,6 @@ export function PricingSection({ onBasic }: { onBasic: (el: HTMLButtonElement) =
             <p className="mt-3 font-display text-ink"><span className="text-lg">R$</span> <span className="text-5xl font-extrabold">{basic.price}</span></p>
             <ul className="mx-auto mt-6 w-fit max-w-full space-y-3 text-left text-sm text-ink">
               {basic.includes.map((i) => <li key={i} className="flex gap-2"><Check className="h-5 w-5 shrink-0 text-buy" aria-hidden />{i}</li>)}
-            </ul>
-            <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-ink-soft">Não inclui</p>
-            <ul className="mx-auto mt-2 w-fit max-w-full space-y-2 text-left text-sm text-ink-soft">
-              {basic.excludes.map((i) => <li key={i} className="flex gap-2"><X className="h-5 w-5 shrink-0 text-destructive/70" aria-hidden />{i}</li>)}
             </ul>
             <BuyButton className="mt-8 max-w-none self-stretch" onClick={(e) => onBasic(e.currentTarget)} aria-haspopup="dialog">{basic.cta}</BuyButton>
           </article>
