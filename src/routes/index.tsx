@@ -32,15 +32,21 @@ function Index() {
   const opener = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    const onScroll = () => {
+    let t: ReturnType<typeof setTimeout> | undefined;
+    const canShow = () => {
       const pricing = document.getElementById("pacotes");
       const r = pricing?.getBoundingClientRect();
       const inPricing = r ? r.top < window.innerHeight && r.bottom > 0 : false;
-      setShowBar(window.scrollY > window.innerHeight * 0.9 && !inPricing);
+      return window.scrollY > window.innerHeight * 0.9 && !inPricing;
     };
-    onScroll();
+    // Hide while the user is scrolling; bring it back shortly after they stop.
+    const onScroll = () => {
+      setShowBar(false);
+      clearTimeout(t);
+      t = setTimeout(() => setShowBar(canShow()), 1200);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => { clearTimeout(t); window.removeEventListener("scroll", onScroll); };
   }, []);
 
   const close = useCallback(() => {
