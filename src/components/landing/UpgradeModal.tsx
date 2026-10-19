@@ -16,8 +16,8 @@ export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => 
       if (e.key === "Tab" && dialogRef.current) {
         const f = dialogRef.current.querySelectorAll<HTMLElement>("a,button");
         const first = f[0], last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
       }
     };
     window.addEventListener("keydown", onKey);
