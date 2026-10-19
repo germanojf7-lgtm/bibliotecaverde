@@ -164,9 +164,9 @@ export function GuaranteeSection() {
       <div className="mx-auto max-w-2xl rounded-3xl border border-gold/30 bg-card p-8 text-center shadow-soft">
         <ShieldCheck className="mx-auto h-14 w-14 text-gold-deep" aria-hidden />
         <h2 className="mt-4 font-display text-2xl font-extrabold text-ink sm:text-3xl">Compre com Mais Tranquilidade</h2>
-        <p className="mt-3 text-ink-soft">Sua compra é realizada através da Hotmart, e você conta com uma garantia de 7 dias.</p>
+        <p className="mt-3 text-ink-soft">Sua compra é realizada através da Hotmart: o Pacote Básico conta com garantia de 7 dias e o Pacote Completo com garantia de 60 dias.</p>
         <ul className="mx-auto mt-6 flex w-fit flex-col gap-2 text-left text-ink">
-          {["Checkout pela Hotmart", "Produto digital", "Garantia de 7 dias"].map((t) => (
+          {["Checkout pela Hotmart", "Produto digital", "Garantia: 7 dias no Básico e 60 dias no Completo"].map((t) => (
             <li key={t} className="flex items-center gap-2"><Check className="h-5 w-5 text-buy" aria-hidden />{t}</li>
           ))}
         </ul>
