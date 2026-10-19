@@ -14,7 +14,17 @@ const GLITTER = Array.from({ length: 60 }, (_, i) => {
 export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const [celebrating, setCelebrating] = useState(false);
-  useEffect(() => { if (!open) setCelebrating(false); }, [open]);
+  const [welcome, setWelcome] = useState(false);
+  useEffect(() => {
+    if (!open) {
+      setWelcome(false);
+      setCelebrating(false);
+      return;
+    }
+    setWelcome(true);
+    const t = setTimeout(() => setWelcome(false), 2600);
+    return () => clearTimeout(t);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -48,6 +58,18 @@ export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => 
         onClick={(e) => e.stopPropagation()}
         className="relative max-h-[92dvh] w-full max-w-md overflow-y-auto rounded-3xl border-t-4 border-gold bg-card p-6 shadow-2xl outline-none animate-in zoom-in-95 sm:p-8"
       >
+        {welcome && (
+          <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden rounded-3xl bg-card/70" role="status" aria-live="polite">
+            {GLITTER.map((g, i) => (
+              <span key={i} className="glitter-piece rounded-sm" style={{ width: g.s, height: g.s, background: g.c, animationDelay: `${g.d}ms`, ["--dx" as string]: `${g.dx}px`, ["--dy" as string]: `${g.dy}px` }} />
+            ))}
+            <div className="animate-welcome absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+              <span className="animate-gift grid h-20 w-20 place-items-center rounded-3xl bg-gold/30 text-gold-deep ring-2 ring-gold shadow-lg shadow-gold/40"><Gift className="h-10 w-10" /></span>
+              <p className="mt-4 font-display text-2xl font-extrabold text-ink">Seja bem-vindo(a)! 🎁</p>
+              <p className="mt-1 text-sm text-ink-soft">Seu presente está a caminho…</p>
+            </div>
+          </div>
+        )}
         {celebrating && (
           <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden rounded-3xl bg-card/85" role="status">
             {GLITTER.map((g, i) => (
