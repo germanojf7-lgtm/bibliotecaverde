@@ -48,7 +48,7 @@ export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => 
           Que Tal Levar o Pacote Completo por Apenas R$ 37?
         </h2>
         <p className="mt-2 text-sm text-ink-soft">
-          Por apenas R$ 10 a mais que o Pacote Básico, você pode ampliar sua biblioteca e receber benefícios adicionais.
+          Por apenas R$ 37, você pode ampliar sua biblioteca e receber benefícios adicionais.
         </p>
         <ul className="mt-5 space-y-2 text-sm text-ink">
           {u.includes.map((i) => <li key={i} className="flex gap-2"><Check className="h-5 w-5 shrink-0 text-buy" aria-hidden />{i}</li>)}
