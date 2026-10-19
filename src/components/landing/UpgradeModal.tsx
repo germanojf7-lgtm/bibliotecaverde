@@ -16,13 +16,14 @@ export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => 
   const [celebrating, setCelebrating] = useState(false);
   const [welcome, setWelcome] = useState(false);
   useEffect(() => {
-    if (open) {
-      setWelcome(true);
-      const t = setTimeout(() => setWelcome(false), 2600);
-      return () => clearTimeout(t);
+    if (!open) {
+      setWelcome(false);
+      setCelebrating(false);
+      return;
     }
-    setWelcome(false);
-    setCelebrating(false);
+    setWelcome(true);
+    const t = setTimeout(() => setWelcome(false), 2600);
+    return () => clearTimeout(t);
   }, [open]);
 
   useEffect(() => {
