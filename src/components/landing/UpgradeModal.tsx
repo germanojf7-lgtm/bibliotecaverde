@@ -26,6 +26,16 @@ export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => 
     return () => clearTimeout(t);
   }, [open]);
 
+  // Ao voltar do checkout (botão "voltar"), o navegador restaura a página congelada — limpa o aviso e fecha o pop-up.
+  useEffect(() => {
+    const reset = () => { setCelebrating(false); setWelcome(false); onClose(); };
+    const onShow = (e: PageTransitionEvent) => { if (e.persisted) reset(); };
+    const onVis = () => { if (document.visibilityState === "visible") setCelebrating(false); };
+    window.addEventListener("pageshow", onShow);
+    document.addEventListener("visibilitychange", onVis);
+    return () => { window.removeEventListener("pageshow", onShow); document.removeEventListener("visibilitychange", onVis); };
+  }, [onClose]);
+
   useEffect(() => {
     if (!open) return;
     dialogRef.current?.focus();
