@@ -10,4 +10,8 @@ describe("offer rules", () => {
     expect(PACKAGES.complete.price).toBe("47,00");
     expect(PACKAGES.upgrade.price).toBe("37,00");
   });
+  it("basic plan lists e-mail support as 'Suporte por e-mail'", () => {
+    expect(PACKAGES.basic.includes).toContain("Suporte por e-mail");
+    expect(PACKAGES.basic.includes.join(" ")).not.toMatch(/atendimento/i);
+  });
 });
