@@ -19,6 +19,18 @@
  */
 
 @theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", "Inter", sans-serif;
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-cream: var(--cream);
+  --color-buy: var(--buy);
+  --color-buy-foreground: var(--buy-foreground);
+  --shadow-soft: 0 4px 20px -8px oklch(0.2 0 0 / 0.12);
+  --shadow-gold: 0 12px 40px -12px oklch(0.77 0.13 85 / 0.45);
+  --shadow-buy: 0 10px 24px -10px oklch(0.6 0.16 150 / 0.6);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,7 +74,14 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
+  --ink: oklch(0.196 0 0);
+  --ink-soft: oklch(0.44 0 0);
+  --gold: oklch(0.77 0.13 85);
+  --gold-deep: oklch(0.6 0.12 80);
+  --cream: oklch(0.973 0.007 85);
+  --buy: oklch(0.627 0.17 149);
+  --buy-foreground: oklch(1 0 0);
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -142,3 +161,6 @@
     color: var(--color-foreground);
   }
 }
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); }
