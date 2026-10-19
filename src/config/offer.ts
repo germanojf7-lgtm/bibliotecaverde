@@ -16,6 +16,7 @@ export const PACKAGES = {
       "Garantia de 7 dias",
       "Suporte por e-mail",
     ],
+    excludes: ["Audiobooks", "Suporte pelo WhatsApp", "Biblioteca ampliada de 5.500 livros"],
     cta: "QUERO O PACOTE BÁSICO",
   },
   complete: {
