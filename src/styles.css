@@ -172,6 +172,6 @@ body { font-family: var(--font-sans); }
 @keyframes welcome-pop { 0% { transform: scale(0.6); opacity: 0; } 60% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
 .animate-slow-pulse { animation: slow-pulse 2.8s ease-in-out infinite; }
 .animate-gift { animation: gift-wiggle 2.6s ease-in-out infinite, gift-glow 2.6s ease-in-out infinite; }
-.glitter-piece { position: absolute; left: 50%; top: 50%; animation: glitter 1.3s cubic-bezier(.2,.7,.3,1) forwards; pointer-events: none; }
-.animate-welcome { animation: welcome-pop .5s ease-out forwards; }
+.glitter-piece { position: absolute; left: 50%; top: 50%; animation: glitter 0.55s cubic-bezier(.2,.7,.3,1) forwards; pointer-events: none; }
+.animate-welcome { animation: welcome-pop .18s ease-out forwards; }
 @media (prefers-reduced-motion: reduce) { .animate-slow-pulse, .animate-gift { animation: none; } }
