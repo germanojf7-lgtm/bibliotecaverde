@@ -164,3 +164,14 @@
 
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-sans); }
+
+@keyframes slow-pulse { 0%,100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in oklch, var(--color-buy) 45%, transparent); } 50% { transform: scale(1.04); box-shadow: 0 0 0 12px color-mix(in oklch, var(--color-buy) 0%, transparent); } }
+@keyframes gift-wiggle { 0%,100% { transform: rotate(0) scale(1); } 10% { transform: rotate(-10deg) scale(1.08); } 20% { transform: rotate(10deg) scale(1.08); } 30% { transform: rotate(-6deg) scale(1.04); } 40% { transform: rotate(0) scale(1); } }
+@keyframes gift-glow { 0%,100% { box-shadow: 0 0 12px 2px color-mix(in oklch, var(--color-gold) 40%, transparent); } 50% { box-shadow: 0 0 30px 10px color-mix(in oklch, var(--color-gold) 70%, transparent); } }
+@keyframes glitter { 0% { transform: translate(-50%,-50%) translate(0,0) scale(1) rotate(0); opacity: 1; } 100% { transform: translate(-50%,-50%) translate(var(--dx), var(--dy)) scale(0.3) rotate(540deg); opacity: 0; } }
+@keyframes welcome-pop { 0% { transform: scale(0.6); opacity: 0; } 60% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+.animate-slow-pulse { animation: slow-pulse 2.8s ease-in-out infinite; }
+.animate-gift { animation: gift-wiggle 2.6s ease-in-out infinite, gift-glow 2.6s ease-in-out infinite; }
+.glitter-piece { position: absolute; left: 50%; top: 50%; animation: glitter 1.3s cubic-bezier(.2,.7,.3,1) forwards; pointer-events: none; }
+.animate-welcome { animation: welcome-pop .5s ease-out forwards; }
+@media (prefers-reduced-motion: reduce) { .animate-slow-pulse, .animate-gift { animation: none; } }
