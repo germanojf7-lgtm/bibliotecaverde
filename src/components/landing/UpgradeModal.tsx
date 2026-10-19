@@ -8,7 +8,7 @@ const COLORS = ["var(--gold)", "var(--buy)", "#f5d36b", "#ff7aa8", "#7ad3ff", "#
 const GLITTER = Array.from({ length: 60 }, (_, i) => {
   const a = (i / 60) * Math.PI * 2 + (i % 3) * 0.2;
   const r = 90 + ((i * 37) % 140);
-  return { dx: Math.cos(a) * r, dy: Math.sin(a) * r, s: 4 + (i % 4) * 2, c: COLORS[i % COLORS.length], d: (i % 6) * 40 };
+  return { dx: Math.cos(a) * r, dy: Math.sin(a) * r, s: 4 + (i % 4) * 2, c: COLORS[i % COLORS.length], d: (i % 6) * 16 };
 });
 
 export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -22,7 +22,7 @@ export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => 
       return;
     }
     setWelcome(true);
-    const t = setTimeout(() => setWelcome(false), 2600);
+    const t = setTimeout(() => setWelcome(false), 1300);
     return () => clearTimeout(t);
   }, [open]);
 
@@ -112,7 +112,7 @@ export function UpgradeModal({ open, onClose }: { open: boolean; onClose: () => 
             if (celebrating) { e.preventDefault(); return; }
             e.preventDefault();
             setCelebrating(true);
-            setTimeout(() => { window.location.href = CHECKOUT_LINKS.upgrade37; }, 1600);
+            setTimeout(() => { window.location.href = CHECKOUT_LINKS.upgrade37; }, 1100);
           }}
           className={cn(
             buyLinkClass,
