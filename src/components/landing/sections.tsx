@@ -32,7 +32,7 @@ export function HeroSection() {
         />
         <ul className="mx-auto mt-6 flex max-w-xl flex-col items-center gap-2 text-sm text-ink sm:flex-row sm:justify-center sm:gap-5">
           {["Produto 100% digital", "Leitura no celular, tablet ou computador", "Garantia de 7 dias"].map((t) => (
-            <li key={t} className="flex items-center gap-2">
+            <li key={t} className="flex items-center justify-center gap-2 text-center">
               <Check className="h-4 w-4 shrink-0 text-gold-deep" aria-hidden /> {t}
             </li>
           ))}
@@ -62,8 +62,8 @@ export function ReceiveSection() {
         />
         <div className="grid gap-4 min-[480px]:grid-cols-2 lg:grid-cols-4">
           {receive.map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
-              <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gold/15">
+            <div key={t} className="rounded-2xl border border-border bg-card p-6 text-center shadow-soft">
+              <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gold/15">
                 <Icon className="h-6 w-6 text-gold-deep" aria-hidden />
               </div>
               <h3 className="font-display text-lg font-bold text-ink">{t}</h3>
@@ -90,8 +90,8 @@ export function BenefitsSection() {
         <SectionHeading title="Conhecimento Sempre ao Seu Alcance" />
         <ul className="space-y-3">
           {benefits.map(({ icon: Icon, t }) => (
-            <li key={t} className="flex items-start gap-4 rounded-2xl bg-card p-5 shadow-soft">
-              <Icon className="mt-0.5 h-6 w-6 shrink-0 text-gold-deep" aria-hidden />
+            <li key={t} className="flex flex-col items-center gap-3 rounded-2xl bg-card p-5 text-center shadow-soft">
+              <Icon className="h-6 w-6 shrink-0 text-gold-deep" aria-hidden />
               <p className="min-w-0 text-base text-ink">{t}</p>
             </li>
           ))}
@@ -117,9 +117,9 @@ export function HowItWorksSection() {
         <SectionHeading title="Comece Sua Jornada de Leitura em 3 Passos" />
         <ol className="grid gap-4 md:grid-cols-3">
           {steps.map(({ icon: Icon, t, d }, i) => (
-            <li key={t} className="relative rounded-2xl border border-border bg-card p-6 shadow-soft">
+            <li key={t} className="relative rounded-2xl border border-border bg-card p-6 text-center shadow-soft">
               <span className="absolute right-5 top-5 font-display text-3xl font-extrabold text-gold/40">{i + 1}</span>
-              <Icon className="mb-4 h-7 w-7 text-gold-deep" aria-hidden />
+              <Icon className="mx-auto mb-4 h-7 w-7 text-gold-deep" aria-hidden />
               <h3 className="font-display text-lg font-bold text-ink">{t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{d}</p>
             </li>
@@ -138,14 +138,14 @@ export function TestimonialsSection() {
         <SectionHeading title="O Que Dizem Nossos Leitores" subtitle="Conheça as experiências de pessoas que adquiriram a biblioteca digital." />
         <div className="grid gap-4 md:grid-cols-3">
           {TESTIMONIALS.map((t) => (
-            <figure key={t.name} className="rounded-2xl bg-card p-6 shadow-soft">
+            <figure key={t.name} className="rounded-2xl bg-card p-6 text-center shadow-soft">
               {t.rating && (
-                <div className="mb-3 flex gap-0.5" aria-label={`${t.rating} de 5 estrelas`}>
+                <div className="mb-3 flex justify-center gap-0.5" aria-label={`${t.rating} de 5 estrelas`}>
                   {Array.from({ length: t.rating }).map((_, i) => <Star key={i} className="h-4 w-4 fill-gold text-gold" />)}
                 </div>
               )}
               <blockquote className="text-sm leading-relaxed text-ink">“{t.text}”</blockquote>
-              <figcaption className="mt-4 flex items-center gap-3">
+              <figcaption className="mt-4 flex flex-wrap items-center justify-center gap-3">
                 {t.photo && <img src={t.photo} alt="" loading="lazy" className="h-10 w-10 rounded-full object-cover" />}
                 <span className="font-semibold text-ink">{t.name}</span>
                 {t.verified && <span className="flex items-center gap-1 text-xs text-buy"><BadgeCheck className="h-4 w-4" />Compra verificada</span>}
