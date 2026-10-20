@@ -19,6 +19,6 @@ describe("regional advertising permission", () => {
     expect(saveConsent(false, "BR")).toBe(true);
     expect(readConsent()?.visitor).toBe(visitor);
     expect(readConsent()?.history.map(c => c.advertising)).toEqual([true, false]);
-    expect(readConsent()?.history[0].noticeVersion).toBe("2026-10-20");
+    expect(readConsent()?.history[0]?.noticeVersion).toBe("2026-10-20");
   });
 });
